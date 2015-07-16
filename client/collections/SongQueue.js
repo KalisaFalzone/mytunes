@@ -4,6 +4,7 @@ var SongQueue = Songs.extend({
   initialize: function() {
     this.on('removeSong',this.remove,this);
     this.on('ended', this.ended, this);
+    this.on('add', this.updateStorageQueue,this);
   },
 
   playFirst: function(){
@@ -23,6 +24,10 @@ var SongQueue = Songs.extend({
     if (this.length >0) {
       this.playFirst();
     }
+  },
+
+  updateStorageQueue: function(){
+    localStorage.setItem('queue', JSON.stringify(this));
   }
 
 });

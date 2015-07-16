@@ -1,8 +1,13 @@
 // SongModel.js - Defines a backbone model class for songs.
 var SongModel = Backbone.Model.extend({
 
+
   defaults: {
     'playCount' : 0
+  },
+
+  initialize: function() {
+    this.set('playCount', Number(localStorage.getItem(this.get('title'))) || 0);
   },
 
   play: function(){
