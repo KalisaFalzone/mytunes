@@ -9,8 +9,7 @@ var SongQueueView = Backbone.View.extend({
   },
 
   queueSong: function(song){
-    this.$el.append(
-      new SongQueueEntryView({model: song}).render());
+    this.$el.append(new SongQueueEntryView({model: song}).render());
   },
 
   render: function() {

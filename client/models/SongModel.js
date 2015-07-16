@@ -5,6 +5,10 @@ var SongModel = Backbone.Model.extend({
     'playCount' : 0
   },
 
+  initialize: function() {
+    this.set('playCount', Number(localStorage.getItem(this.get('title'))) || 0);
+  },
+
   play: function(){
     // Triggering an event here will also trigger the event on the collection
     this.trigger('play', this);
