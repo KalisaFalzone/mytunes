@@ -24,7 +24,7 @@ var AppModel = Backbone.Model.extend({
     this.get('songQueue').on('ended', function(song) {
       var libSong = params.library.findWhere({url: song.get('url')});
       libSong.set('playCount',libSong.get('playCount')+1);
-    }, this);
+    });
 
   }
 
