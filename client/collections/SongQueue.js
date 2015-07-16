@@ -16,8 +16,8 @@ var SongQueue = Songs.extend({
     }
   },
 
-  removeSong: function(){
-
+  removeSong: function(song) {
+    this.remove(song);
   },
 
   ended: function(){
