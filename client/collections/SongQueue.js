@@ -10,7 +10,7 @@ var SongQueue = Songs.extend({
     this.at(0).play();
   },
 
-  enqueue: function(song){
+  enqueue: function(song) {
     this.add(song.clone());
 
     if (this.length === 1){
@@ -18,7 +18,7 @@ var SongQueue = Songs.extend({
     }
   },
 
-  ended: function(){
+  ended: function() {
     this.shift();
     if (this.length >0) {
       this.playFirst();
