@@ -17,7 +17,7 @@ describe('SongModel', function() {
     });
   });
 
-  xdescribe('enqueue', function() {
+  describe('enqueue', function() {
     it('triggers an "enqueue" event', function() {
       model.enqueue();
       expect(model.trigger).to.have.been.calledWith('enqueue', model);
