@@ -2,6 +2,9 @@
 var SongQueue = Songs.extend({
 
   initialize: function(){
+    this.on('removeSong',this.remove);
+
+    this.on('ended',this.ended,this);
   },
 
   playFirst: function(){
@@ -9,15 +12,11 @@ var SongQueue = Songs.extend({
   },
 
   enqueue: function(song){
-    this.add(song);
+    this.add(song.clone());
 
     if (this.length === 1){
       this.playFirst();
     }
-  },
-
-  removeSong: function(song) {
-    this.remove(song);
   },
 
   ended: function(){
