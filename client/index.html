@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+  </head>
   <body>
+
+    <div class="container">
+    </div>
 
     <!-- Scripts may be placed anywhere on a page. But FYI, they block rendering of elements
      below them until after the scripts load-->
@@ -32,7 +38,7 @@
         var appView = new AppView({model: app});
 
         // put the view onto the screen
-        $('body').append(appView.render());
+        $('.container').append(appView.render());
 
 
       });
