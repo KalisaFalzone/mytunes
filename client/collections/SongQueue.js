@@ -2,13 +2,24 @@
 var SongQueue = Songs.extend({
 
   initialize: function() {
-    this.on('removeSong',this.remove,this);
+    this.on('removeSong',this.removeSong,this);
     this.on('ended', this.ended, this);
     this.on('add remove', this.updateStorageQueue,this);
   },
 
   playFirst: function() {
     this.at(0).play();
+  },
+
+  removeSong: function(song) {
+    this.remove(song);
+
+    if(!this.length) {
+      this.trigger('stop',this);
+      return;
+    }
+
+    this.playFirst();
   },
 
   enqueue: function(song) {

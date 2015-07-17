@@ -20,6 +20,10 @@ var AppModel = Backbone.Model.extend({
       this.set('currentSong', song);
     }, this);
 
+    this.get('songQueue').on('stop',function() {
+      this.set('currentSong',new SongModel());
+    },this);
+
     this.get('songQueue').on('ended', function(song) {
       var playedSong = this.get('library').findWhere({title: song.get('title')});
       playedSong.set('playCount', playedSong.get('playCount')+1);
